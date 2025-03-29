@@ -1,5 +1,5 @@
 
-# Vigenère Cipher
+# Le Chiffre Indéchiffrable (Unbreakable Cipher)
 
 A Python implementation of the Vigenère cipher, a method of encrypting alphabetic text by using a simple form of polyalphabetic substitution.
 For more detailed information, you can read my Medium article.   
