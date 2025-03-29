@@ -88,13 +88,18 @@ def getKey() -> str:
             print(e)
            
 # check if the plaintext is valid 
-def getPlainText() -> str:
+# 0 for encryption
+# 1 for decryption
+def getText(type: bool) -> str:
     while True:
         try:
-            plaintext = input("Plaintext: ")
-            if not all(char.isalpha() and ord(char.lower()) < 128 for char in plaintext if char.isalpha()):
+            if type == 0:
+                text = input("Plaintext: ")
+            else:
+                text = input("Ciphertext: ")
+            if not all(char.isalpha() and ord(char.lower()) < 128 for char in text if char.isalpha()):
                 raise ValueError("Only English alphabetic characters allowed.")
-            return plaintext
+            return text
         except ValueError as e:
             print(e)
             
@@ -109,7 +114,11 @@ def vigenere():
         except ValueError as e:
             print(e)
     
-    text = getPlainText()
+    if operation.startswith('e'):
+        text = getText(0)
+    else:
+        text = getText(1)
+
     
     while True:
         try:
